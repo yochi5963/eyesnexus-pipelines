@@ -1,0 +1,9 @@
+{
+	"name": "fmgpoc-adf",
+	"location": "japaneast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "70a13f92-710b-4a64-87a7-70db8df88578",
+		"tenantId": "64128110-38c0-49cd-a783-11356372a560"
+	}
+}
