@@ -1,0 +1,10 @@
+{
+	"name": "pip_s3_to_db",
+	"properties": {
+		"description": "S3から都道府県CSV取込",
+		"folder": {
+			"name": "POC"
+		},
+		"annotations": []
+	}
+}

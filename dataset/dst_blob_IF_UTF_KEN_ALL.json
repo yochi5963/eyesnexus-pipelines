@@ -1,0 +1,90 @@
+{
+	"name": "dst_blob_IF_UTF_KEN_ALL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_fmgpoc_blob",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "POC"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "utf_ken_all.zip",
+				"folderPath": "import",
+				"container": "eyesnexus-pipelines"
+			},
+			"columnDelimiter": ",",
+			"compressionCodec": "ZipDeflate",
+			"compressionLevel": "Fastest",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "01101",
+				"type": "String"
+			},
+			{
+				"name": "060  ",
+				"type": "String"
+			},
+			{
+				"name": "0600000",
+				"type": "String"
+			},
+			{
+				"name": "ホッカイドウ",
+				"type": "String"
+			},
+			{
+				"name": "サッポロシチュウオウク",
+				"type": "String"
+			},
+			{
+				"name": "イカニケイサイガナイバアイ",
+				"type": "String"
+			},
+			{
+				"name": "北海道",
+				"type": "String"
+			},
+			{
+				"name": "札幌市中央区",
+				"type": "String"
+			},
+			{
+				"name": "以下に掲載がない場合",
+				"type": "String"
+			},
+			{
+				"name": "09",
+				"type": "String"
+			},
+			{
+				"name": "010",
+				"type": "String"
+			},
+			{
+				"name": "011",
+				"type": "String"
+			},
+			{
+				"name": "012",
+				"type": "String"
+			},
+			{
+				"name": "013",
+				"type": "String"
+			},
+			{
+				"name": "014",
+				"type": "String"
+			}
+		]
+	}
+}
