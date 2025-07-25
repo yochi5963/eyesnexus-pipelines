@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "fmgpoc-adf"
+		},
+		"lnk_fmgpoc_blob_connectionString": {
+			"value": ""
+		},
+		"lnk_fmgpoc_db_password": {
+			"value": ""
+		},
+		"lnk_s3_yochi_secretAccessKey": {
+			"value": ""
+		},
+		"lnk_fmgpoc_db_properties_typeProperties_server": {
+			"value": "fmgpoc-dbsv.database.windows.net"
+		},
+		"lnk_fmgpoc_db_properties_typeProperties_database": {
+			"value": "fmgpoc-dbms"
+		},
+		"lnk_fmgpoc_db_properties_typeProperties_userName": {
+			"value": "fmgpoc_app"
+		},
+		"lnk_s3_yochi_properties_typeProperties_accessKeyId": {
+			"value": "AKIASXRLZ3YPB3EFS2FG"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

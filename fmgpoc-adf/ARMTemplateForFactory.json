@@ -1,0 +1,835 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "データ ファクトリ名",
+			"defaultValue": "fmgpoc-adf"
+		},
+		"lnk_fmgpoc_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "'lnk_fmgpoc_blob' の 'connectionString' のセキュリティで保護された文字列"
+		},
+		"lnk_fmgpoc_db_password": {
+			"type": "secureString",
+			"metadata": "'lnk_fmgpoc_db' の 'password' のセキュリティで保護された文字列"
+		},
+		"lnk_s3_yochi_secretAccessKey": {
+			"type": "secureString",
+			"metadata": "'lnk_s3_yochi' の 'secretAccessKey' のセキュリティで保護された文字列"
+		},
+		"lnk_fmgpoc_db_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "fmgpoc-dbsv.database.windows.net"
+		},
+		"lnk_fmgpoc_db_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "fmgpoc-dbms"
+		},
+		"lnk_fmgpoc_db_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "fmgpoc_app"
+		},
+		"lnk_s3_yochi_properties_typeProperties_accessKeyId": {
+			"type": "string",
+			"defaultValue": "AKIASXRLZ3YPB3EFS2FG"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/pip_blob_to_db')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "S3から都道府県CSV取込",
+				"activities": [
+					{
+						"name": "Copy utf_ken_all",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.00:10:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"additionalColumns": [
+									{
+										"name": "created_id",
+										"value": {
+											"value": "fmgpoc-adf",
+											"type": "Expression"
+										}
+									},
+									{
+										"name": "updated_id",
+										"value": {
+											"value": "fmgpoc-adf",
+											"type": "Expression"
+										}
+									}
+								],
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings",
+									"compressionProperties": {
+										"type": "ZipDeflateReadSettings"
+									}
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "truncate table IF_UTF_KEN_ALL;",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"type": "String",
+											"physicalType": "String",
+											"ordinal": 1
+										},
+										"sink": {
+											"name": "region_code",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"type": "String",
+											"physicalType": "String",
+											"ordinal": 2
+										},
+										"sink": {
+											"name": "old_postcode",
+											"type": "String",
+											"physicalType": "char"
+										}
+									},
+									{
+										"source": {
+											"type": "String",
+											"physicalType": "String",
+											"ordinal": 3
+										},
+										"sink": {
+											"name": "postcode",
+											"type": "String",
+											"physicalType": "char"
+										}
+									},
+									{
+										"source": {
+											"type": "String",
+											"physicalType": "String",
+											"ordinal": 4
+										},
+										"sink": {
+											"name": "prefecture_kana",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"type": "String",
+											"physicalType": "String",
+											"ordinal": 5
+										},
+										"sink": {
+											"name": "city_kana",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"type": "String",
+											"physicalType": "String",
+											"ordinal": 6
+										},
+										"sink": {
+											"name": "town_kana",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"type": "String",
+											"physicalType": "String",
+											"ordinal": 7
+										},
+										"sink": {
+											"name": "prefecture",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"type": "String",
+											"physicalType": "String",
+											"ordinal": 8
+										},
+										"sink": {
+											"name": "city",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"type": "String",
+											"physicalType": "String",
+											"ordinal": 9
+										},
+										"sink": {
+											"name": "town",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"type": "String",
+											"physicalType": "String",
+											"ordinal": 10
+										},
+										"sink": {
+											"name": "multiple_postcodes",
+											"type": "String",
+											"physicalType": "char"
+										}
+									},
+									{
+										"source": {
+											"type": "String",
+											"physicalType": "String",
+											"ordinal": 11
+										},
+										"sink": {
+											"name": "koaza_banchi",
+											"type": "String",
+											"physicalType": "char"
+										}
+									},
+									{
+										"source": {
+											"type": "String",
+											"physicalType": "String",
+											"ordinal": 12
+										},
+										"sink": {
+											"name": "chome",
+											"type": "String",
+											"physicalType": "char"
+										}
+									},
+									{
+										"source": {
+											"type": "String",
+											"physicalType": "String",
+											"ordinal": 13
+										},
+										"sink": {
+											"name": "multiple_towns",
+											"type": "String",
+											"physicalType": "char"
+										}
+									},
+									{
+										"source": {
+											"type": "String",
+											"physicalType": "String",
+											"ordinal": 14
+										},
+										"sink": {
+											"name": "update_status",
+											"type": "String",
+											"physicalType": "char"
+										}
+									},
+									{
+										"source": {
+											"type": "String",
+											"physicalType": "String",
+											"ordinal": 15
+										},
+										"sink": {
+											"name": "change_reason",
+											"type": "String",
+											"physicalType": "char"
+										}
+									},
+									{
+										"source": {
+											"name": "created_id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "created_id",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "updated_id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "updated_id",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "dst_blob_IF_UTF_KEN_ALL",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "dst_db_IF_UTF_KEN_ALL",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"folder": {
+					"name": "POC"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/dst_blob_IF_UTF_KEN_ALL')]",
+				"[concat(variables('factoryId'), '/datasets/dst_db_IF_UTF_KEN_ALL')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pip_s3_to_db')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "S3から都道府県CSV取込",
+				"activities": [
+					{
+						"name": "Copy prefecture",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.00:10:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "DelimitedTextSource",
+								"additionalColumns": [
+									{
+										"name": "created_id",
+										"value": {
+											"value": "fmgpoc-adf",
+											"type": "Expression"
+										}
+									},
+									{
+										"name": "updated_id",
+										"value": {
+											"value": "fmgpoc-adf",
+											"type": "Expression"
+										}
+									}
+								],
+								"storeSettings": {
+									"type": "AmazonS3ReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "truncate table IF_PREFECTURE;",
+								"writeBehavior": "insert",
+								"sqlWriterUseTableLock": false,
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "prefecture_id",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "prefecture_id",
+											"type": "String",
+											"physicalType": "varchar"
+										}
+									},
+									{
+										"source": {
+											"name": "prefecture_name",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "prefecture_name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "created_id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "created_id",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "updated_id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "updated_id",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "dst_s3_IF_PREFECTURE",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "dst_db_IF_PREFECTURE",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"folder": {
+					"name": "POC"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/dst_s3_IF_PREFECTURE')]",
+				"[concat(variables('factoryId'), '/datasets/dst_db_IF_PREFECTURE')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dst_blob_IF_UTF_KEN_ALL')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lnk_fmgpoc_blob",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "POC"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "utf_ken_all.zip",
+						"folderPath": "import",
+						"container": "eyesnexus-pipelines"
+					},
+					"columnDelimiter": ",",
+					"compressionCodec": "ZipDeflate",
+					"compressionLevel": "Fastest",
+					"escapeChar": "\\",
+					"firstRowAsHeader": false,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/lnk_fmgpoc_blob')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dst_db_IF_PREFECTURE')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lnk_fmgpoc_db",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "POC"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "prefecture_id",
+						"type": "varchar"
+					},
+					{
+						"name": "prefecture_name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "created_at",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "created_user",
+						"type": "nvarchar"
+					},
+					{
+						"name": "created_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "updated_at",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "updated_user",
+						"type": "nvarchar"
+					},
+					{
+						"name": "updated_id",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "IF_PREFECTURE"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/lnk_fmgpoc_db')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dst_db_IF_UTF_KEN_ALL')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lnk_fmgpoc_db",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "POC"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "auto_primary_key",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "region_code",
+						"type": "varchar"
+					},
+					{
+						"name": "old_postcode",
+						"type": "char"
+					},
+					{
+						"name": "postcode",
+						"type": "char"
+					},
+					{
+						"name": "prefecture_kana",
+						"type": "nvarchar"
+					},
+					{
+						"name": "city_kana",
+						"type": "nvarchar"
+					},
+					{
+						"name": "town_kana",
+						"type": "nvarchar"
+					},
+					{
+						"name": "prefecture",
+						"type": "nvarchar"
+					},
+					{
+						"name": "city",
+						"type": "nvarchar"
+					},
+					{
+						"name": "town",
+						"type": "nvarchar"
+					},
+					{
+						"name": "multiple_postcodes",
+						"type": "char"
+					},
+					{
+						"name": "koaza_banchi",
+						"type": "char"
+					},
+					{
+						"name": "chome",
+						"type": "char"
+					},
+					{
+						"name": "multiple_towns",
+						"type": "char"
+					},
+					{
+						"name": "update_status",
+						"type": "char"
+					},
+					{
+						"name": "change_reason",
+						"type": "char"
+					},
+					{
+						"name": "created_at",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "created_user",
+						"type": "nvarchar"
+					},
+					{
+						"name": "created_id",
+						"type": "nvarchar"
+					},
+					{
+						"name": "updated_at",
+						"type": "datetime2",
+						"scale": 7
+					},
+					{
+						"name": "updated_user",
+						"type": "nvarchar"
+					},
+					{
+						"name": "updated_id",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "IF_UTF_KEN_ALL"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/lnk_fmgpoc_db')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dst_s3_IF_PREFECTURE')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lnk_s3_yochi",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "POC"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AmazonS3Location",
+						"bucketName": "e3-yochi",
+						"folderPath": "import",
+						"fileName": "都道府県.csv"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "prefecture_id",
+						"type": "String"
+					},
+					{
+						"name": "prefecture_name",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/lnk_s3_yochi')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/lnk_fmgpoc_blob')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('lnk_fmgpoc_blob_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/lnk_fmgpoc_db')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"server": "[parameters('lnk_fmgpoc_db_properties_typeProperties_server')]",
+					"database": "[parameters('lnk_fmgpoc_db_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('lnk_fmgpoc_db_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('lnk_fmgpoc_db_password')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/lnk_s3_yochi')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AmazonS3",
+				"typeProperties": {
+					"serviceUrl": "https://s3.amazonaws.com",
+					"accessKeyId": "[parameters('lnk_s3_yochi_properties_typeProperties_accessKeyId')]",
+					"secretAccessKey": {
+						"type": "SecureString",
+						"value": "[parameters('lnk_s3_yochi_secretAccessKey')]"
+					},
+					"authenticationType": "AccessKey"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

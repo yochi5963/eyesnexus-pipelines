@@ -1,0 +1,91 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "データ ファクトリ名",
+			"defaultValue": "fmgpoc-adf"
+		},
+		"lnk_fmgpoc_blob_connectionString": {
+			"type": "secureString",
+			"metadata": "'lnk_fmgpoc_blob' の 'connectionString' のセキュリティで保護された文字列"
+		},
+		"lnk_fmgpoc_db_password": {
+			"type": "secureString",
+			"metadata": "'lnk_fmgpoc_db' の 'password' のセキュリティで保護された文字列"
+		},
+		"lnk_s3_yochi_secretAccessKey": {
+			"type": "secureString",
+			"metadata": "'lnk_s3_yochi' の 'secretAccessKey' のセキュリティで保護された文字列"
+		},
+		"lnk_fmgpoc_db_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "fmgpoc-dbsv.database.windows.net"
+		},
+		"lnk_fmgpoc_db_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "fmgpoc-dbms"
+		},
+		"lnk_fmgpoc_db_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "fmgpoc_app"
+		},
+		"lnk_s3_yochi_properties_typeProperties_accessKeyId": {
+			"type": "string",
+			"defaultValue": "AKIASXRLZ3YPB3EFS2FG"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "リンクされた ARM テンプレートを含むストレージ アカウントの URI"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "リンクされた ARM テンプレートを格納するストレージ アカウントへの SAS トークン"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "fmgpoc-adf_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"lnk_fmgpoc_blob_connectionString": {
+						"value": "[parameters('lnk_fmgpoc_blob_connectionString')]"
+					},
+					"lnk_fmgpoc_db_password": {
+						"value": "[parameters('lnk_fmgpoc_db_password')]"
+					},
+					"lnk_s3_yochi_secretAccessKey": {
+						"value": "[parameters('lnk_s3_yochi_secretAccessKey')]"
+					},
+					"lnk_fmgpoc_db_properties_typeProperties_server": {
+						"value": "[parameters('lnk_fmgpoc_db_properties_typeProperties_server')]"
+					},
+					"lnk_fmgpoc_db_properties_typeProperties_database": {
+						"value": "[parameters('lnk_fmgpoc_db_properties_typeProperties_database')]"
+					},
+					"lnk_fmgpoc_db_properties_typeProperties_userName": {
+						"value": "[parameters('lnk_fmgpoc_db_properties_typeProperties_userName')]"
+					},
+					"lnk_s3_yochi_properties_typeProperties_accessKeyId": {
+						"value": "[parameters('lnk_s3_yochi_properties_typeProperties_accessKeyId')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
