@@ -110,7 +110,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "dst_s3yochi_IF_PREFECTURE",
+						"referenceName": "dst_s3yochi_PREFECTURE",
 						"type": "DatasetReference"
 					}
 				],

@@ -1,5 +1,5 @@
 {
-	"name": "dst_blob_TR_WITHDRAWAL_export",
+	"name": "dst_blob_SEND0001",
 	"properties": {
 		"description": "銀行別 自動振替データファイル",
 		"linkedServiceName": {

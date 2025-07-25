@@ -1,5 +1,5 @@
 {
-	"name": "dst_blob_IF_UTF_KEN_ALL",
+	"name": "dst_blob_UTF_KEN_ALL",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "lnk_fmgpoc_blob",

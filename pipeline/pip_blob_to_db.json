@@ -269,7 +269,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "dst_blob_IF_UTF_KEN_ALL",
+						"referenceName": "dst_blob_UTF_KEN_ALL",
 						"type": "DatasetReference"
 					}
 				],
