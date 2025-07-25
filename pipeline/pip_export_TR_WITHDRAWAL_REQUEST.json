@@ -9,13 +9,16 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@createArray('0001')",
+						"value": "@createArray(1,2,34)",
 						"type": "Expression"
 					},
+					"isSequential": true,
 					"activities": [
 						{
 							"name": "Copy TR_WITHDRAWAL_REQUEST",
 							"type": "Copy",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [
 								{
 									"activity": "Set variable1",
@@ -93,14 +96,9 @@
 								"secureOutput": false,
 								"secureInput": false
 							},
-							"userProperties": [
-								{
-									"name": "aaa",
-									"value": "vbb"
-								}
-							],
+							"userProperties": [],
 							"typeProperties": {
-								"variableName": "ccc",
+								"variableName": "aaa",
 								"value": {
 									"value": "@item()",
 									"type": "Expression"
@@ -112,8 +110,9 @@
 			}
 		],
 		"variables": {
-			"ccc": {
-				"type": "String"
+			"aaa": {
+				"type": "String",
+				"defaultValue": "aaa"
 			}
 		},
 		"folder": {
