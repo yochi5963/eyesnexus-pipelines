@@ -59,9 +59,9 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "01101",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "String",
+									"ordinal": 1
 								},
 								"sink": {
 									"name": "region_code",
@@ -71,9 +71,9 @@
 							},
 							{
 								"source": {
-									"name": "060  ",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "String",
+									"ordinal": 2
 								},
 								"sink": {
 									"name": "old_postcode",
@@ -83,9 +83,9 @@
 							},
 							{
 								"source": {
-									"name": "0600000",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "String",
+									"ordinal": 3
 								},
 								"sink": {
 									"name": "postcode",
@@ -95,9 +95,9 @@
 							},
 							{
 								"source": {
-									"name": "ホッカイドウ",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "String",
+									"ordinal": 4
 								},
 								"sink": {
 									"name": "prefecture_kana",
@@ -107,9 +107,9 @@
 							},
 							{
 								"source": {
-									"name": "サッポロシチュウオウク",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "String",
+									"ordinal": 5
 								},
 								"sink": {
 									"name": "city_kana",
@@ -119,9 +119,9 @@
 							},
 							{
 								"source": {
-									"name": "イカニケイサイガナイバアイ",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "String",
+									"ordinal": 6
 								},
 								"sink": {
 									"name": "town_kana",
@@ -131,9 +131,9 @@
 							},
 							{
 								"source": {
-									"name": "北海道",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "String",
+									"ordinal": 7
 								},
 								"sink": {
 									"name": "prefecture",
@@ -143,9 +143,9 @@
 							},
 							{
 								"source": {
-									"name": "札幌市中央区",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "String",
+									"ordinal": 8
 								},
 								"sink": {
 									"name": "city",
@@ -155,9 +155,9 @@
 							},
 							{
 								"source": {
-									"name": "以下に掲載がない場合",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "String",
+									"ordinal": 9
 								},
 								"sink": {
 									"name": "town",
@@ -167,9 +167,9 @@
 							},
 							{
 								"source": {
-									"name": "09",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "String",
+									"ordinal": 10
 								},
 								"sink": {
 									"name": "multiple_postcodes",
@@ -179,9 +179,9 @@
 							},
 							{
 								"source": {
-									"name": "010",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "String",
+									"ordinal": 11
 								},
 								"sink": {
 									"name": "koaza_banchi",
@@ -191,9 +191,9 @@
 							},
 							{
 								"source": {
-									"name": "011",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "String",
+									"ordinal": 12
 								},
 								"sink": {
 									"name": "chome",
@@ -203,9 +203,9 @@
 							},
 							{
 								"source": {
-									"name": "012",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "String",
+									"ordinal": 13
 								},
 								"sink": {
 									"name": "multiple_towns",
@@ -215,9 +215,9 @@
 							},
 							{
 								"source": {
-									"name": "013",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "String",
+									"ordinal": 14
 								},
 								"sink": {
 									"name": "update_status",
@@ -227,9 +227,9 @@
 							},
 							{
 								"source": {
-									"name": "014",
 									"type": "String",
-									"physicalType": "String"
+									"physicalType": "String",
+									"ordinal": 15
 								},
 								"sink": {
 									"name": "change_reason",

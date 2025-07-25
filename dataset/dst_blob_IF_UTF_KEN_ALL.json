@@ -21,68 +21,68 @@
 			"compressionCodec": "ZipDeflate",
 			"compressionLevel": "Fastest",
 			"escapeChar": "\\",
-			"firstRowAsHeader": true,
+			"firstRowAsHeader": false,
 			"quoteChar": "\""
 		},
 		"schema": [
 			{
-				"name": "01101",
+				"name": "全国地方公共団体コード",
 				"type": "String"
 			},
 			{
-				"name": "060  ",
+				"name": "旧郵便番号",
 				"type": "String"
 			},
 			{
-				"name": "0600000",
+				"name": "郵便番号",
 				"type": "String"
 			},
 			{
-				"name": "ホッカイドウ",
+				"name": "都道府県カナ",
 				"type": "String"
 			},
 			{
-				"name": "サッポロシチュウオウク",
+				"name": "市区町村カナ",
 				"type": "String"
 			},
 			{
-				"name": "イカニケイサイガナイバアイ",
+				"name": "町域カナ",
 				"type": "String"
 			},
 			{
-				"name": "北海道",
+				"name": "都道府県名",
 				"type": "String"
 			},
 			{
-				"name": "札幌市中央区",
+				"name": "市区町村名",
 				"type": "String"
 			},
 			{
-				"name": "以下に掲載がない場合",
+				"name": "町域名",
 				"type": "String"
 			},
 			{
-				"name": "09",
+				"name": "一町域が二以上の郵便番号か",
 				"type": "String"
 			},
 			{
-				"name": "010",
+				"name": "小字毎に番地が起番されている町域か",
 				"type": "String"
 			},
 			{
-				"name": "011",
+				"name": "丁目を有する町域か",
 				"type": "String"
 			},
 			{
-				"name": "012",
+				"name": "一つの郵便番号で複数の町域か",
 				"type": "String"
 			},
 			{
-				"name": "013",
+				"name": "更新確認",
 				"type": "String"
 			},
 			{
-				"name": "014",
+				"name": "変更理由",
 				"type": "String"
 			}
 		]
