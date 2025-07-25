@@ -27,7 +27,7 @@
 				"folderPath": "export",
 				"container": "eyesnexus-pipelines"
 			},
-			"columnDelimiter": "",
+			"columnDelimiter": ",",
 			"compressionCodec": null,
 			"compressionLevel": "Fastest",
 			"encodingName": "SHIFT-JIS",
