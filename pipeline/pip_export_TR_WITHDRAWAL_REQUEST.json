@@ -9,7 +9,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "[\"0001\", \"0005\", \"0009\", \"9900\"]",
+						"value": "@array(['0001', '0005', '0009', '9900'])",
 						"type": "Expression"
 					},
 					"activities": [
@@ -18,7 +18,7 @@
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
-								"timeout": "0.:00:00",
+								"timeout": "0.00:10:00",
 								"retry": 0,
 								"retryIntervalInSeconds": 30,
 								"secureOutput": false,
@@ -26,8 +26,57 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"enableStaging": false
-							}
+								"source": {
+									"type": "AzureSqlSource",
+									"additionalColumns": [
+										{
+											"name": "bank_code",
+											"value": {
+												"value": "@item()",
+												"type": "Expression"
+											}
+										}
+									],
+									"sqlReaderQuery": "-- パラメータ化クエリ ADF @bank_code には、ForEachアクティビティの値 @item() をセットする \n-- パラメータ化クエリ UT用 ↓↓↓\n--      DECLARE @bank_code VARCHAR(10);\n--      SET @bank_code = '9900';\n\n-- ヘッダー（1行）\nSELECT\n    '1' +                                                   -- データ区分\n    '91' +                                                  -- 種別コード\n    '0' +                                                   -- コード区分\n    RIGHT('0000000000' + MIN(consignor_code), 10) +         -- 委託者コード\n    LEFT(RTRIM(MIN(consignor_name)) + REPLICATE(' ', 40), 40) + -- 委託者名\n    LEFT(MIN(withdrawal_day), 4) +                          -- 引落日（MMDD）\n    RIGHT('0000' + MIN(consignor_bank_code), 4) +           -- 取引銀行番号\n    LEFT(RTRIM(MIN(consignor_bank_name)) + REPLICATE(' ', 15), 15) + -- 銀行名\n    RIGHT('000' + MIN(consignor_branch_code), 3) +          -- 取引店番号\n    LEFT(RTRIM(MIN(consignor_branch_name)) + REPLICATE(' ', 15), 15) + -- 支店名\n    LEFT(MIN(consignor_deposit_type), 1) +                  -- 預金種目\n    RIGHT('0000000' + MIN(consignor_account_no), 7) +       -- 口座番号\n    REPLICATE(' ', 17)                                      -- ダミー\nAS record_line\n\nFROM TR_WITHDRAWAL_REQUEST\nWHERE export_count = 0 AND consignor_bank_code = @bank_code\n\n-- 明細（N行）\nUNION ALL SELECT\n    '2' +\n    RIGHT('0000' + withdrawal_bank_code, 4) +\n    LEFT(RTRIM(withdrawal_bank_name) + REPLICATE(' ', 15), 15) +\n    RIGHT('000' + withdrawal_branch_code, 3) +\n    LEFT(RTRIM(withdrawal_branch_name) + REPLICATE(' ', 15), 15) +\n    REPLICATE(' ', 4) +\n    LEFT(withdrawal_deposit_type, 1) +\n    RIGHT('0000000' + withdrawal_account_no, 7) +\n    LEFT(RTRIM(withdrawal_account_name) + REPLICATE(' ', 30), 30) +\n    RIGHT('0000000000' + withdrawal_amount, 10) +\n    '0' +                                                  -- 新規コード（暫定: 0）\n    RIGHT('00000000000000000000' + withdrawal_customer_no, 20) +\n    '0' +\n    REPLICATE(' ', 8)\nFROM TR_WITHDRAWAL_REQUEST\nWHERE export_count = 0 AND consignor_bank_code = @bank_code\n\n-- トレーラ（1行）\nUNION ALL SELECT\n    '8' +\n    RIGHT('000000' + CAST(COUNT(*) AS VARCHAR), 6) +\n    RIGHT('000000000000' + CAST(SUM(CAST(withdrawal_amount AS BIGINT)) AS VARCHAR), 12) +\n    REPLICATE('0', 6) + REPLICATE('0', 12) +\n    REPLICATE('0', 6) + REPLICATE('0', 12) +\n    REPLICATE(' ', 65)\nFROM TR_WITHDRAWAL_REQUEST\nWHERE export_count = 0 AND consignor_bank_code = @bank_code\n\n-- エンド（1行）\nUNION ALL SELECT '9' + REPLICATE(' ', 119);",
+									"queryTimeout": "00:10:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobStorageWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "dst_db_none",
+									"type": "DatasetReference"
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "dst_blob_TR_WITHDRAWAL_export",
+									"type": "DatasetReference",
+									"parameters": {
+										"bank_code": "@item()"
+									}
+								}
+							]
 						}
 					]
 				}

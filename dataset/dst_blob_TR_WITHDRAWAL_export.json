@@ -1,0 +1,86 @@
+{
+	"name": "dst_blob_TR_WITHDRAWAL_export",
+	"properties": {
+		"description": "銀行別 自動振替データファイル",
+		"linkedServiceName": {
+			"referenceName": "lnk_fmgpoc_blob",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"bank_code": {
+				"type": "string",
+				"defaultValue": "none"
+			}
+		},
+		"folder": {
+			"name": "POC"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "send@{dataset().bank_code}.TXT",
+					"type": "Expression"
+				},
+				"folderPath": "export",
+				"container": "eyesnexus-pipelines"
+			},
+			"columnDelimiter": "",
+			"compressionCodec": null,
+			"compressionLevel": "Fastest",
+			"encodingName": "SHIFT-JIS",
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": ""
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	}
+}
