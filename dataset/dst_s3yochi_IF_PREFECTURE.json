@@ -1,5 +1,5 @@
 {
-	"name": "dst_s3_IF_PREFECTURE",
+	"name": "dst_s3yochi_IF_PREFECTURE",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "lnk_s3_yochi",

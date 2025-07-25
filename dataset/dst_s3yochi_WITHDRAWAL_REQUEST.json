@@ -1,0 +1,101 @@
+{
+	"name": "dst_s3yochi_WITHDRAWAL_REQUEST",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_s3_yochi",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "POC"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AmazonS3Location",
+				"bucketName": "e3-yochi",
+				"folderPath": "import",
+				"fileName": "手作り_WITHDRAWAL_REQUEST.csv"
+			},
+			"columnDelimiter": ",",
+			"encodingName": "SHIFT-JIS",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "委託者コード",
+				"type": "String"
+			},
+			{
+				"name": "委託者名",
+				"type": "String"
+			},
+			{
+				"name": "引き落とし日",
+				"type": "String"
+			},
+			{
+				"name": "取引銀行番号",
+				"type": "String"
+			},
+			{
+				"name": "取引銀行名",
+				"type": "String"
+			},
+			{
+				"name": "取引支店番号",
+				"type": "String"
+			},
+			{
+				"name": "取引支店名",
+				"type": "String"
+			},
+			{
+				"name": "預金種目（委託者）",
+				"type": "String"
+			},
+			{
+				"name": "口座番号（委託者）",
+				"type": "String"
+			},
+			{
+				"name": "引落銀行番号",
+				"type": "String"
+			},
+			{
+				"name": "引落銀行名",
+				"type": "String"
+			},
+			{
+				"name": "引落支店番号",
+				"type": "String"
+			},
+			{
+				"name": "引落支店名",
+				"type": "String"
+			},
+			{
+				"name": "預金種目",
+				"type": "String"
+			},
+			{
+				"name": "口座番号",
+				"type": "String"
+			},
+			{
+				"name": "預金者名",
+				"type": "String"
+			},
+			{
+				"name": "引落金額",
+				"type": "String"
+			},
+			{
+				"name": "顧客番号",
+				"type": "String"
+			}
+		]
+	}
+}
