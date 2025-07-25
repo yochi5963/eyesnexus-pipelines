@@ -1,0 +1,132 @@
+{
+	"name": "dst_db_TR_WITHDRAWAL_REQUEST",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_fmgpoc_db",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "POC"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "sequence_no",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "uuid",
+				"type": "varchar"
+			},
+			{
+				"name": "export_count",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "consignor_code",
+				"type": "varchar"
+			},
+			{
+				"name": "consignor_name",
+				"type": "varchar"
+			},
+			{
+				"name": "withdrawal_day",
+				"type": "varchar"
+			},
+			{
+				"name": "consignor_bank_code",
+				"type": "varchar"
+			},
+			{
+				"name": "consignor_bank_name",
+				"type": "varchar"
+			},
+			{
+				"name": "consignor_branch_code",
+				"type": "varchar"
+			},
+			{
+				"name": "consignor_branch_name",
+				"type": "varchar"
+			},
+			{
+				"name": "consignor_deposit_type",
+				"type": "varchar"
+			},
+			{
+				"name": "consignor_account_no",
+				"type": "varchar"
+			},
+			{
+				"name": "withdrawal_bank_code",
+				"type": "varchar"
+			},
+			{
+				"name": "withdrawal_bank_name",
+				"type": "varchar"
+			},
+			{
+				"name": "withdrawal_branch_code",
+				"type": "varchar"
+			},
+			{
+				"name": "withdrawal_branch_name",
+				"type": "varchar"
+			},
+			{
+				"name": "withdrawal_deposit_type",
+				"type": "varchar"
+			},
+			{
+				"name": "withdrawal_account_no",
+				"type": "varchar"
+			},
+			{
+				"name": "withdrawal_account_name",
+				"type": "varchar"
+			},
+			{
+				"name": "withdrawal_amount",
+				"type": "varchar"
+			},
+			{
+				"name": "withdrawal_customer_no",
+				"type": "varchar"
+			},
+			{
+				"name": "created_at",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "created_user",
+				"type": "nvarchar"
+			},
+			{
+				"name": "created_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "updated_at",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "updated_user",
+				"type": "nvarchar"
+			},
+			{
+				"name": "updated_id",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TR_WITHDRAWAL_REQUEST"
+		}
+	}
+}

@@ -1,0 +1,1260 @@
+{
+	"name": "dst_db_IF_IMPORTR_300",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_fmgpoc_db",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "POC"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "uuid",
+				"type": "varchar"
+			},
+			{
+				"name": "uuid_index",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ctr_index",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "created_at",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "created_user",
+				"type": "nvarchar"
+			},
+			{
+				"name": "created_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "updated_at",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "updated_user",
+				"type": "nvarchar"
+			},
+			{
+				"name": "updated_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F001",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F002",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F003",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F004",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F005",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F006",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F007",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F008",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F009",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F010",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F011",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F012",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F013",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F014",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F015",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F016",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F017",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F018",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F019",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F020",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F021",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F022",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F023",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F024",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F025",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F026",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F027",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F028",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F029",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F030",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F031",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F032",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F033",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F034",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F035",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F036",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F037",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F038",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F039",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F040",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F041",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F042",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F043",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F044",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F045",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F046",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F047",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F048",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F049",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F050",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F051",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F052",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F053",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F054",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F055",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F056",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F057",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F058",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F059",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F060",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F061",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F062",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F063",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F064",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F065",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F066",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F067",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F068",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F069",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F070",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F071",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F072",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F073",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F074",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F075",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F076",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F077",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F078",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F079",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F080",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F081",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F082",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F083",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F084",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F085",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F086",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F087",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F088",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F089",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F090",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F091",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F092",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F093",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F094",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F095",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F096",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F097",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F098",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F099",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F100",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F101",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F102",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F103",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F104",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F105",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F106",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F107",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F108",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F109",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F110",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F111",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F112",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F113",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F114",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F115",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F116",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F117",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F118",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F119",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F120",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F121",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F122",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F123",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F124",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F125",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F126",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F127",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F128",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F129",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F130",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F131",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F132",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F133",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F134",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F135",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F136",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F137",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F138",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F139",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F140",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F141",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F142",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F143",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F144",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F145",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F146",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F147",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F148",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F149",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F150",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F151",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F152",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F153",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F154",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F155",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F156",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F157",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F158",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F159",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F160",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F161",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F162",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F163",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F164",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F165",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F166",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F167",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F168",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F169",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F170",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F171",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F172",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F173",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F174",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F175",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F176",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F177",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F178",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F179",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F180",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F181",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F182",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F183",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F184",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F185",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F186",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F187",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F188",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F189",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F190",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F191",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F192",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F193",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F194",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F195",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F196",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F197",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F198",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F199",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F200",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F201",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F202",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F203",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F204",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F205",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F206",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F207",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F208",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F209",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F210",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F211",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F212",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F213",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F214",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F215",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F216",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F217",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F218",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F219",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F220",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F221",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F222",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F223",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F224",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F225",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F226",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F227",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F228",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F229",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F230",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F231",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F232",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F233",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F234",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F235",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F236",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F237",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F238",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F239",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F240",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F241",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F242",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F243",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F244",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F245",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F246",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F247",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F248",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F249",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F250",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F251",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F252",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F253",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F254",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F255",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F256",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F257",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F258",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F259",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F260",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F261",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F262",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F263",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F264",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F265",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F266",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F267",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F268",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F269",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F270",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F271",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F272",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F273",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F274",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F275",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F276",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F277",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F278",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F279",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F280",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F281",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F282",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F283",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F284",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F285",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F286",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F287",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F288",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F289",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F290",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F291",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F292",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F293",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F294",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F295",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F296",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F297",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F298",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F299",
+				"type": "nvarchar"
+			},
+			{
+				"name": "F300",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "IF_IMPORTR_300"
+		}
+	}
+}
