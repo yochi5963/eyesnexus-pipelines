@@ -12,6 +12,11 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
+				"name": "sequence_no",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
 				"name": "uuid",
 				"type": "varchar"
 			},
