@@ -26,63 +26,48 @@
 		},
 		"schema": [
 			{
-				"name": "全国地方公共団体コード",
 				"type": "String"
 			},
 			{
-				"name": "旧郵便番号",
 				"type": "String"
 			},
 			{
-				"name": "郵便番号",
 				"type": "String"
 			},
 			{
-				"name": "都道府県カナ",
 				"type": "String"
 			},
 			{
-				"name": "市区町村カナ",
 				"type": "String"
 			},
 			{
-				"name": "町域カナ",
 				"type": "String"
 			},
 			{
-				"name": "都道府県名",
 				"type": "String"
 			},
 			{
-				"name": "市区町村名",
 				"type": "String"
 			},
 			{
-				"name": "町域名",
 				"type": "String"
 			},
 			{
-				"name": "一町域が二以上の郵便番号か",
 				"type": "String"
 			},
 			{
-				"name": "小字毎に番地が起番されている町域か",
 				"type": "String"
 			},
 			{
-				"name": "丁目を有する町域か",
 				"type": "String"
 			},
 			{
-				"name": "一つの郵便番号で複数の町域か",
 				"type": "String"
 			},
 			{
-				"name": "更新確認",
 				"type": "String"
 			},
 			{
-				"name": "変更理由",
 				"type": "String"
 			}
 		]
