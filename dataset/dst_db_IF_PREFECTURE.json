@@ -1,0 +1,54 @@
+{
+	"name": "dst_db_IF_PREFECTURE",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_fmgpoc_db",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "POC"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "prefecture_id",
+				"type": "varchar"
+			},
+			{
+				"name": "prefecture_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "created_at",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "created_user",
+				"type": "nvarchar"
+			},
+			{
+				"name": "created_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "updated_at",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "updated_user",
+				"type": "nvarchar"
+			},
+			{
+				"name": "updated_id",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "IF_PREFECTURE"
+		}
+	}
+}

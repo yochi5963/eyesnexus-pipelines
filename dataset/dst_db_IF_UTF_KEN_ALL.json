@@ -1,0 +1,111 @@
+{
+	"name": "dst_db_IF_UTF_KEN_ALL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_fmgpoc_db",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "POC"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "auto_primary_key",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "region_code",
+				"type": "varchar"
+			},
+			{
+				"name": "old_postcode",
+				"type": "char"
+			},
+			{
+				"name": "postcode",
+				"type": "char"
+			},
+			{
+				"name": "prefecture_kana",
+				"type": "nvarchar"
+			},
+			{
+				"name": "city_kana",
+				"type": "nvarchar"
+			},
+			{
+				"name": "town_kana",
+				"type": "nvarchar"
+			},
+			{
+				"name": "prefecture",
+				"type": "nvarchar"
+			},
+			{
+				"name": "city",
+				"type": "nvarchar"
+			},
+			{
+				"name": "town",
+				"type": "nvarchar"
+			},
+			{
+				"name": "multiple_postcodes",
+				"type": "char"
+			},
+			{
+				"name": "koaza_banchi",
+				"type": "char"
+			},
+			{
+				"name": "chome",
+				"type": "char"
+			},
+			{
+				"name": "multiple_towns",
+				"type": "char"
+			},
+			{
+				"name": "update_status",
+				"type": "char"
+			},
+			{
+				"name": "change_reason",
+				"type": "char"
+			},
+			{
+				"name": "created_at",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "created_user",
+				"type": "nvarchar"
+			},
+			{
+				"name": "created_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "updated_at",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "updated_user",
+				"type": "nvarchar"
+			},
+			{
+				"name": "updated_id",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "IF_UTF_KEN_ALL"
+		}
+	}
+}
