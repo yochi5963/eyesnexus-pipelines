@@ -1,0 +1,12 @@
+{
+	"name": "dst_db_none",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_fmgpoc_db",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
