@@ -1,0 +1,289 @@
+{
+	"name": "pip_blob_to_db",
+	"properties": {
+		"description": "BLOBから郵便番号CSV取込",
+		"activities": [
+			{
+				"name": "Copy utf_ken_all",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.00:10:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"additionalColumns": [
+							{
+								"name": "created_id",
+								"value": {
+									"value": "fmgpoc-adf",
+									"type": "Expression"
+								}
+							},
+							{
+								"name": "updated_id",
+								"value": {
+									"value": "fmgpoc-adf",
+									"type": "Expression"
+								}
+							}
+						],
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"compressionProperties": {
+								"type": "ZipDeflateReadSettings"
+							}
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "truncate table IF_UTF_KEN_ALL;",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "01101",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "region_code",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "060  ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "old_postcode",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "0600000",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "postcode",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "ホッカイドウ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "prefecture_kana",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "サッポロシチュウオウク",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "city_kana",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "イカニケイサイガナイバアイ",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "town_kana",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "北海道",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "prefecture",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "札幌市中央区",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "city",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "以下に掲載がない場合",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "town",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "09",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "multiple_postcodes",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "010",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "koaza_banchi",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "011",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "chome",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "012",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "multiple_towns",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "013",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "update_status",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "014",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "change_reason",
+									"type": "String",
+									"physicalType": "char"
+								}
+							},
+							{
+								"source": {
+									"name": "created_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "created_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "updated_id",
+									"type": "String"
+								},
+								"sink": {
+									"name": "updated_id",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "dst_blob_IF_UTF_KEN_ALL",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dst_db_IF_UTF_KEN_ALL",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "POC"
+		},
+		"annotations": []
+	}
+}
