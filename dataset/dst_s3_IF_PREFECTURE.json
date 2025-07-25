@@ -1,0 +1,36 @@
+{
+	"name": "dst_s3_IF_PREFECTURE",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_s3_yochi",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "POC"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AmazonS3Location",
+				"bucketName": "e3-yochi",
+				"folderPath": "import",
+				"fileName": "都道府県.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "prefecture_id",
+				"type": "String"
+			},
+			{
+				"name": "prefecture_name",
+				"type": "String"
+			}
+		]
+	}
+}
