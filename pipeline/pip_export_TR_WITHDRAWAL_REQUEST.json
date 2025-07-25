@@ -9,7 +9,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@createArray('0001', '0005', '0009', '9900')\n",
+						"value": "@createArray('0001')",
 						"type": "Expression"
 					},
 					"activities": [
