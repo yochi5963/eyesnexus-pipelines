@@ -1,5 +1,5 @@
 {
-	"name": "pip_s3_to_db",
+	"name": "pip_s3yochi_to_db",
 	"properties": {
 		"description": "S3から都道府県CSV取込",
 		"activities": [
