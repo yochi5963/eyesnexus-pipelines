@@ -1,5 +1,5 @@
 {
-	"name": "dst_blob_SEND0001",
+	"name": "dst_blob_SEND9999",
 	"properties": {
 		"description": "銀行別 自動振替データファイル",
 		"linkedServiceName": {
@@ -35,52 +35,6 @@
 			"firstRowAsHeader": false,
 			"quoteChar": ""
 		},
-		"schema": [
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			},
-			{
-				"type": "String"
-			}
-		]
+		"schema": []
 	}
 }
